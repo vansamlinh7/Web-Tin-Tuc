@@ -1,0 +1,224 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background: #4E72DE;
+}
+.content-form{
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+    margin-top:30px;
+    background: #fff;
+    height: 90%;
+    position: relative;
+}
+.content-form::after{
+    content: "";
+    display: block;
+    width: 100%;
+    clear: both;
+}
+.content-form .image{
+    background-image: url(images/bg15.jpg);
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center center;
+}
+.content-form .form{
+    padding:40px 20px;
+    width: 60%;
+    float: right;
+    height: 100%;
+
+}
+.content-form .form .row{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.content-form .form .row::after{
+    content: "";
+    display: block;
+    width: 100%;
+    clear: both;
+}
+.content-form .form .row .half{
+    width: 48%;
+    float: left;
+}
+.content-form .form .row .half:nth-child(1){
+    margin-right: 2%;
+}
+.content-form .form .row .half:nth-child(2){
+    margin-left: 2%;
+}
+.content-form .form .row input{
+    width: 100%;
+    height: 50px;
+    border:1px solid #d1d3e2;
+    padding: 10px;
+    /* border-radius: 30px; */
+}
+.content-form .form .row input:focus{
+    outline: none;
+}
+.content-form .form .row .full button{
+    width: 100%;
+    height: 50px;
+    border:none;
+    background: #4E72DE;
+    color: #fff;
+}
+.content-form .form .row button.google{
+    background: #EA4335;
+    color: #fff;
+}
+.content-form .form .row button.facebook{
+    background: #3B5998;
+    color: #fff;
+}
+.content-form .form .forgot{
+    text-align: center;
+}
+
+
+
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url(images/bg9.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+
+.login-form{
+    z-index: 1000;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s linear;
+}
+.login-form.show{
+    top: 50%;
+}
+body.show::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    left: 0;
+    top: 0;
+    z-index: 999;
+}
+
+
+.sign-up-form{
+    z-index: 1001;
+    left: 50%;
+    top: -50%;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s linear;
+}
+
+.sign-up-form.show{
+    top: 50%;
+}
+
+body.show::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    left: 0;
+    top: 0;
+    z-index: 998;
+}

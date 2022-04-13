@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+		
+		
+		
+		<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/admin**"
+			access="hasAuthority('4')" />
+		<security:intercept-url pattern="/user**"
+			access="hasAuthority('4') or hasAuthority('3') or hasAuthority('2')" />
+		<security:access-denied-handler
+			error-page="/403" />
+		<security:form-login 
+			login-page="/login"
+			login-processing-url="/j_spring_security_check"
+			default-target-url="/" 
+			authentication-failure-url="/?error"
+			username-parameter="username" 
+			password-parameter="password" />
+		<security:logout
+			logout-url="/j_spring_security_logout" />
+		<security:csrf disabled="true" />
+	</security:http>
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select ten_dang_nhap,mat_khau, enabled from nguoidung where ten_dang_nhap=?"
+				authorities-by-username-query="select ten_dang_nhap, chucvu_id from nguoidung where ten_dang_nhap =?  " />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://localhost:3306/website?characterEncoding=UTF-8"
+		p:username="root" p:password="" />
+</beans>
